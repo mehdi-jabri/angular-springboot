@@ -1,0 +1,43 @@
+<app-navbar></app-navbar>
+<div class="card">
+  <h3 class="card-header text-center font-weight-bold text-uppercase py-4">Edit Application</h3>
+
+  <div class="card-body">
+
+    <div id="table" class="table-editable">
+      <span class="table-add float-right mb-3 mr-2">
+
+    <button class="btn-secondary" mat-mini-fab matTooltip="Add app">
+        <mat-icon routerLink="/app/add" aria-label="add application">add</mat-icon>
+    </button>
+      </span>
+      <table class="table table-bordered table-responsive-md table-striped text-center">
+        <tr>
+          <th class="text-center">Application Name</th>
+          <th class="text-center">Description</th>
+          <th class="text-center">Action</th>
+        </tr>
+        <tr *ngFor="let app of applicationList; let id = index">
+          <td>
+            <span (keyup)="changeValue(id, 'name', $event)" (blur)="updateList(id, 'name', $event)" contenteditable="true">{{app.name}}</span>
+          </td>
+          <td>
+            <span (keyup)="changeValue(id, 'description', $event)" (blur)="updateList(id, 'description', $event)" contenteditable="true">{{app.description}}</span>
+          </td>
+
+          <td>
+            <span class="table-remove">
+              <!--<button type="button" class="btn btn-indigo" (click)="remove(id)">Remove</button>-->
+              <button mat-icon-button color="accent" matTooltip="edit application">
+                 <mat-icon aria-label="edit application">edit</mat-icon>
+              </button>
+              <button mat-icon-button color="warn" matTooltip="delete applicaion">
+                 <mat-icon (click)="remove(id)" aria-label="delete application">delete_forever</mat-icon>
+              </button>
+            </span>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+<app-navbar></app-navbar>
+  <div class="row justify-content-md-center">
+  <mdb-card-body class="px-lg-5 pt-0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+    <form class="text-center border border-light p-5" style="color: #757575;" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+      <p class="h5 mb-4 text-center green-text">Contact us</p>
+
+      <div class="md-form mt-3">
+        <input type="text" formControlName="contactFormName" id="materialContactFormName" class="form-control"  mdbInput>
+        <label for="materialContactFormName">Name</label>
+      </div>
+
+      <div class="md-form">
+        <input type="email" formContcontactFormSubjectsrolName="contactFormEmail" id="materialContactFormEmail" class="form-control" mdbInput>
+        <label for="materialContactFormEmail">E-mail</label>
+      </div>
+
+      <div class="md-form">
+        <textarea type="text" formControlName="contactFormMessage" id="materialContactFormMessage" class="form-control md-textarea" mdbInput></textarea>
+        <label for="materialContactFormMessage">Message</label>
+      </div>
+
+      <button mdbBtn color="info" outline="true" rounded="true" block="true" class="z-depth-0 my-4 waves-effect" mdbWavesEffect type="submit">Send</button>
+    </form>
+  </mdb-card-body>
+</div>

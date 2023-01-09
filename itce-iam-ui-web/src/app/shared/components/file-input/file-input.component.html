@@ -1,0 +1,12 @@
+<form class="md-form" [formGroup]="uploadFileForm">
+  <div class="file-field">
+    <div>
+      <input type="file" name="file" id="file" class="input-file" formControlName="filePath" (change)="onFileSelected($event)"/>
+      <label for="file" class="btn btn-primary btn-sm float-left">Choose a file</label>
+    </div>
+    <div class="file-path-wrapper">
+      <input class="file-path validate" [ngClass]="{'valid': (formControl.filePath.dirty)}"
+      type="text" placeholder="Upload your file" value="{{selectedFile}}">
+    </div>
+  </div>
+</form>

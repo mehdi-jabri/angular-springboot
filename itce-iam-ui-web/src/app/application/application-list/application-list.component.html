@@ -1,0 +1,29 @@
+<app-navbar></app-navbar>
+<h3 class="card-header text-center font-weight-bold text-uppercase py-4">List : </h3>
+
+<div id="table" class="table-editable">
+      <span class="table-add float-right mb-3 mr-2">
+      </span>
+  <table class="table table-bordered table-responsive-md table-striped text-center">
+    <tr>
+      <th>Id_Application</th>
+      <th class="text-center">Application Name</th>
+      <th class="text-center">Application Description</th>
+      <th class="text-center">Id_Client</th>
+    </tr>
+    <tr *ngFor="let app of apps; let id = index">
+      <td>
+        <span  contenteditable="true">{{app.id}}</span>
+      </td>
+      <td>
+        <span contenteditable="true">{{app.name}}</span>
+      </td>
+      <td>
+        <span  contenteditable="true">{{app.description}}</span>
+      </td>
+      <td>
+        <span  contenteditable="true">{{app.id_client}}</span>
+      </td>
+    </tr>
+  </table>
+</div>

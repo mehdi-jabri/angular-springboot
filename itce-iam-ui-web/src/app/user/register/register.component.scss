@@ -1,0 +1,20 @@
+.material-form-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.material-form-field > * {
+  width: 100%;
+}
+
+mat-form-field.mat-form-field {
+  font-size: 16px;
+}
+
+mat-form-field{
+  width: 400px;
+}
+
+.form-field{
+  display: block
+}

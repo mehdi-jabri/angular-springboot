@@ -1,0 +1,78 @@
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark indigo">
+  <mdb-navbar-brand>
+    <a class="navbar-brand" href="">IAM</a>
+  </mdb-navbar-brand>
+  <links>
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active waves-light" mdbRippleRadius>
+        <a class="nav-link waves-light" href="/home">Home <span class="sr-only">(current)</span></a>
+      </li>
+
+      <li class="nav-item dropdown btn-group" dropdown>
+        <a dropdownToggle type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>Application<span class="caret"></span></a>
+        <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
+          <a class="dropdown-item waves-light" href="app/add" mdbWavesEffect>AppAdd</a>
+          <a class="dropdown-item waves-light" href="app/list" mdbWavesEffect>AppList</a>
+          <a class="dropdown-item waves-light" href="app/edit" mdbWavesEffect>AppEdit</a>
+
+        </div>
+      </li>
+
+
+      <li class="nav-item dropdown btn-group" dropdown>
+        <a dropdownToggle type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>Roles<span class="caret"></span></a>
+        <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
+          <a class="dropdown-item waves-light" href="role/add" mdbWavesEffect>RoleAdd</a>
+          <a class="dropdown-item waves-light" href="role/list" mdbWavesEffect>RoleList</a>
+          <a class="dropdown-item waves-light" href="role/details" mdbWavesEffect>RoleDetails</a>
+        </div>
+      </li>
+
+    </ul>
+    <ul class="navbar-nav nav-flex-icons">
+      <!-- <li class="nav-item waves-light" mdbRippleRadius>
+         <a class="nav-link"><i class="fa fa-facebook"></i></a>
+       </li>
+       <li class="nav-item waves-light" mdbRippleRadius>
+         <a class="nav-link"><i class="fa fa-twitter"></i></a>
+       </li>
+       <li class="nav-item waves-light" mdbRippleRadius>
+         <a class="nav-link"><i class="fa fa-instagram"></i></a>
+       </li>-->
+
+      <!--</ul>
+        <li class="nav-item waves-light" mdbRippleRadius>
+          <a class="nav-link" href="/login">Login</a>
+        </li>
+        <li class="nav-item waves-light" mdbRippleRadius>
+          <a class="nav-link" href="/register">Regiser</a>
+        </li>
+      <ul>-->
+
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link waves-light"  href="/contact" mdbWavesEffect ><mdb-icon fas icon="envelope"></mdb-icon> Contact us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link waves-light"  href="/about" mdbWavesEffect ><mdb-icon fas icon="book-open"></mdb-icon> About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link waves-light" mdbWavesEffect><mdb-icon fas icon="cog"></mdb-icon> Settings</a>
+        </li>
+
+        <!-- Dropdown -->
+        <li class="nav-item dropdown" dropdown>
+          <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
+            <mdb-icon fas icon="user"></mdb-icon> Profile<span class="caret"></span></a>
+          <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
+            <a class="dropdown-item waves-light" mdbWavesEffect href="#">My account</a>
+            <a class="dropdown-item waves-light" mdbWavesEffect href="/login">Log out</a>
+            <a class="dropdown-item waves-light" mdbWavesEffect href="/register">Register</a>
+          </div>
+        </li>
+
+      </ul>
+
+    </ul>
+  </links>
+</mdb-navbar>

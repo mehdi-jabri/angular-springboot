@@ -1,0 +1,107 @@
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
+  <mdb-navbar-brand>
+    <a class="navbar-brand" routerLink="/background">IAM</a>
+  </mdb-navbar-brand>
+  <links>
+    <ul class="navbar-nav ml-auto mt-lg-0">
+      <li class="nav-item mx-4" mdbWavesEffect>
+        <a class="nav-link" routerLink="/login">Login</a>
+      </li>
+      <li class="nav-item mx-4" mdbWavesEffect>
+        <a class="nav-link" routerLink="/about">Read More</a>
+      </li>
+    </ul>
+  </links>
+</mdb-navbar>
+<section class="view intro-2">
+  &nbsp;
+  &nbsp;
+
+<div class="row justify-content-md-center">&nbsp;
+<div class="login_div">
+  <mdb-card>
+   <!-- <mdb-card-header class="info-color white-text text-center py-4">
+      <div class="text-center">
+        <h3 class="white-text">
+          <mdb-icon fas icon="user" class="text-blue"></mdb-icon> Sign in</h3>
+      </div>
+    </mdb-card-header>-->
+  <mdb-card-body class="px-lg-5 pt-0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+    <form class="text-center" style="color: #757575;"[formGroup]="loginForm" >
+
+
+      <mat-card class="material-form-field mb-4 red-text" *ngIf="errorMessage&&errorMessage.length">
+        {{errorMessage}}
+      </mat-card>
+
+
+      <!--<p class="h5 mb-4 text-center green-text">Sign in</p>
+
+      <div class="inline-ul text-center d-flex justify-content-center">
+        <a class="icons-sm tw-ic pr-5">
+          <i class="fa fa-twitter blue-text"></i>
+        </a>
+        <a class="icons-sm li-ic pr-5">
+          <i class="fa fa-facebook dark-blue-text"> </i>
+        </a>
+        <a class="icons-sm ins-ic pr-5">
+          <i class="fa fa-instagram purple-text"> </i>
+        </a>
+        <a class="icons-sm ins-ic">
+          <i class="fa fa-google red-text"> </i>
+        </a>
+      </div>-->
+
+
+
+      <mat-form-field  class="material-form-field" style="color:  black;"  appearance="standard">
+       <!-- <mat-label>Your email</mat-label>-->
+        <label>Your email </label>
+        <input matInput type="text" formControlName="email" disabled>
+        <mat-error *ngIf="loginForm.controls['email'].hasError('email') && !loginForm.controls['email'].hasError('required')">
+          Please enter a valid email address <i>example@gmail.com</i>
+        </mat-error>
+        <mat-error *ngIf="loginForm.controls['email'].hasError('required')">
+          Email is
+          <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+      &nbsp;
+      <mat-form-field  class="material-form-field" style="color:  black;" appearance="standard">
+        <label>Your password </label>
+        <input matInput  type="password" formControlName="password" >
+        <mat-error *ngIf="loginForm.controls['password'].hasError('required')">
+          Password is
+          <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <div class="text-center mt-4">
+        <button mdbBtn color="light-blue" mdbWavesEffect type="button" (click)="login()" >Login</button>&nbsp;
+        <a  [routerLink]="['/background']" class="radius title">Cancel</a>
+
+        <div class="inline-ul text-center d-flex justify-content-center">
+          <a class="p-2 m-2 tw-ic">
+            <mdb-icon fab icon="twitter" class="text-blue"></mdb-icon>
+          </a>
+          <a class="p-2 m-2 li-ic">
+            <mdb-icon fab icon="linkedin-in" class="text-dark-blue"></mdb-icon>
+          </a>
+          <a class="p-2 m-2 ins-ic">
+            <mdb-icon fab icon="instagram" class="text-purple"></mdb-icon>
+          </a>
+          <a class="p-2 m-2 ins-ic">
+            <mdb-icon fab icon="facebook" class="text-dark-blue"></mdb-icon>
+          </a>
+          <a class="p-2 m-2 ins-ic">
+            <mdb-icon fab icon="google" class="text-red"></mdb-icon>
+          </a>
+
+        </div>
+      </div>
+    </form>
+
+  </mdb-card-body></mdb-card>
+</div>
+</div></section>

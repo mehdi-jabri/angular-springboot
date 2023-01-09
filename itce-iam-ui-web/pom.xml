@@ -1,0 +1,156 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.itce.iam.ui</groupId>
+        <artifactId>itce-iam-ui-parent</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+        <relativePath>../itce-iam-ui-parent/pom.xml</relativePath>
+    </parent>
+    <artifactId>itce-iam-ui-web</artifactId>
+    <name>itce-iam-ui-web</name>
+
+    <build>
+        <!-- <resources> -->
+        <!-- <resource> -->
+        <!-- <directory>target/classes/META-INF/resources</directory> -->
+        <!-- </resource> -->
+        <!-- </resources> -->
+        <plugins>
+<!--          <plugin>-->
+<!--            <artifactId>maven-clean-plugin</artifactId>-->
+<!--            <configuration>-->
+<!--              <filesets>-->
+<!--                <fileset>-->
+<!--                  <directory>dist</directory>-->
+<!--                </fileset>-->
+<!--              </filesets>-->
+<!--            </configuration>-->
+<!--          </plugin>-->
+          <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>exec-maven-plugin</artifactId>
+            <version>1.6.0</version>
+            <executions>
+              <execution>
+                <id>run-npm-install</id>
+                <phase>compile</phase>
+                <goals>
+                  <goal>exec</goal>
+                </goals>
+                <configuration>
+                  <executable>npm</executable>
+                  <arguments>
+                    <argument>install</argument>
+                  </arguments>
+                </configuration>
+              </execution>
+              <execution>
+                <id>run-npm-lint</id>
+                <phase>compile</phase>
+                <goals>
+                  <goal>exec</goal>
+                </goals>
+                <configuration>
+                  <executable>npm</executable>
+                  <arguments>
+                    <argument>run</argument>
+                    <argument>lint</argument>
+                  </arguments>
+                </configuration>
+              </execution>
+              <execution>
+                <id>run-npm-build</id>
+                <phase>compile</phase>
+                <goals>
+                  <goal>exec</goal>
+                </goals>
+                <configuration>
+                  <executable>npm</executable>
+                  <arguments>
+                    <argument>run</argument>
+                    <argument>${ng.build.argument}</argument>
+                  </arguments>
+                </configuration>
+              </execution>
+            </executions>
+
+          </plugin>
+<!--          <plugin>-->
+<!--              <groupId>com.github.eirslett</groupId>-->
+<!--              <artifactId>frontend-maven-plugin</artifactId>-->
+<!--              <version>1.7.6</version>-->
+<!--              <configuration>-->
+<!--                  <nodeVersion>v10.16.0</nodeVersion>-->
+<!--              </configuration>-->
+<!--              <executions>-->
+<!--                  &lt;!&ndash;<execution>&ndash;&gt;-->
+<!--                      &lt;!&ndash;<id>install node and npm</id>&ndash;&gt;-->
+<!--                      &lt;!&ndash;<goals>&ndash;&gt;-->
+<!--                          &lt;!&ndash;<goal>install-node-and-npm</goal>&ndash;&gt;-->
+<!--                      &lt;!&ndash;</goals>&ndash;&gt;-->
+<!--                      &lt;!&ndash;<phase>generate-resources</phase>&ndash;&gt;-->
+<!--                  &lt;!&ndash;</execution>&ndash;&gt;-->
+<!--                  <execution>-->
+<!--                      <id>npm install</id>-->
+<!--                      <goals>-->
+<!--                          <goal>npm</goal>-->
+<!--                      </goals>-->
+<!--                      <configuration>-->
+<!--                          <arguments>install</arguments>-->
+<!--                      </configuration>-->
+<!--                  </execution>-->
+<!--                  <execution>-->
+<!--                      <id>npm run lint</id>-->
+<!--                      <goals>-->
+<!--                          <goal>npm</goal>-->
+<!--                      </goals>-->
+<!--                      <configuration>-->
+<!--                          <arguments>run lint</arguments>-->
+<!--                      </configuration>-->
+<!--                  </execution>-->
+<!--                  <execution>-->
+<!--                      <id>npm run build</id>-->
+<!--                      <goals>-->
+<!--                          <goal>npm</goal>-->
+<!--                      </goals>-->
+<!--                      <phase>generate-resources</phase>-->
+<!--                      <configuration>-->
+<!--                          <arguments>run build-jar</arguments>-->
+<!--                      </configuration>-->
+<!--                  </execution>-->
+<!--                  &lt;!&ndash; <execution> &ndash;&gt;-->
+<!--                  &lt;!&ndash; <id>yarn test</id> &ndash;&gt;-->
+<!--                  &lt;!&ndash; <goals> &ndash;&gt;-->
+<!--                  &lt;!&ndash; <goal>yarn</goal> &ndash;&gt;-->
+<!--                  &lt;!&ndash; </goals> &ndash;&gt;-->
+<!--                  &lt;!&ndash; <phase>test</phase> &ndash;&gt;-->
+<!--                  &lt;!&ndash; <configuration> &ndash;&gt;-->
+<!--                  &lt;!&ndash; <arguments>test dashdashwatch false</arguments> &ndash;&gt;-->
+<!--                  &lt;!&ndash; <failOnError>true</failOnError> &ndash;&gt;-->
+<!--                  &lt;!&ndash; </configuration> &ndash;&gt;-->
+<!--                  &lt;!&ndash; </execution> &ndash;&gt;-->
+<!--              </executions>-->
+<!--          </plugin>-->
+        </plugins>
+    </build>
+
+  <!--  Profiles-->
+  <profiles>
+    <profile>
+      <id>dev</id>
+      <properties>
+        <ng.build.argument>build</ng.build.argument>
+      </properties>
+    </profile>
+    <profile>
+      <id>prod</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <properties>
+        <ng.build.argument>build:prod</ng.build.argument>
+      </properties>
+    </profile>
+  </profiles>
+</project>

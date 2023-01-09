@@ -1,0 +1,84 @@
+<app-navbar></app-navbar>
+&nbsp;<div layout="row" layout-align="space-between center" flex class="layout-align-space-between-center layout-row flex">
+  <div class="top-container">
+    <span class="md-lgn-headline">{{ title }}</span>&nbsp;
+    <button class="btn-secondary" mat-mini-fab matTooltip="Home">
+      <mat-icon routerLink="/" aria-label="Home">home</mat-icon>
+    </button>
+  </div>
+</div>&nbsp;
+
+    <mat-horizontal-stepper style="background:lightslategray;" #stepper>
+      <mat-step [stepControl]="addForm">
+        <ng-template matStepLabel>application</ng-template>
+<form [formGroup]="addForm">
+  <div class="form-group" >
+    <label class="col-md-4">Application Name</label>
+    <input type="text" class="form-control" formControlName="name" #name/>
+  </div>
+  <div *ngIf="addForm.controls['name'].invalid && (addForm.controls['name'].dirty || addForm.controls['name'].touched)" class="alert alert-danger">
+    <div *ngIf="addForm.controls['name'].errors.required">
+      Application Name is required.
+    </div>
+  </div>
+
+  <div class="form-group" >
+    <label class="col-md-4">Application Description</label>
+    <textarea type="text" formControlName="description"  class="form-control" rows = 7 cols = "5" #description></textarea>
+  </div>
+  <div *ngIf="addForm.controls['description'].invalid && (addForm.controls['description'].dirty || addForm.controls['description'].touched)" class="alert alert-danger">
+    <div *ngIf="addForm.controls['description'].errors.required">
+      Application Description is required.
+    </div>
+  </div>
+
+  <div>
+    <button class="btn-primary" mat-raised-button matStepperPrevious>Previous</button>&nbsp;
+    <button class="btn-primary" mat-raised-button matStepperNext>Next</button>
+  </div>
+
+  <div class="form-group">
+    <button (click)="createApplication()" type="submit" class="btn btn-primary"  [disabled]="addForm.pristine" aria-disabled="true">Create Application</button>
+    <a [routerLink]="['/home']" class="btn btn-link">Cancel</a>
+  </div>
+    </form>
+      </mat-step>
+      <mat-step [stepControl]="roleForm">
+        <ng-template matStepLabel>Role</ng-template>
+        <app-role-add></app-role-add>
+        <div>
+          <button class="btn-primary" mat-raised-button matStepperPrevious>Previous</button>&nbsp;
+          <button class="btn-primary" mat-raised-button matStepperNext>Next</button>
+        </div>
+      </mat-step>
+
+      <mat-step>
+        <ng-template matStepLabel>Permission</ng-template>
+
+        <mat-radio-group class="example-radio-group" >
+          <mat-radio-button class="example-radio-button" value="user">USER</mat-radio-button>
+          <mat-radio-button class="example-radio-button" value="technical">TECHNICAL</mat-radio-button>
+        </mat-radio-group>
+        <div>
+          <button class="btn-primary" mat-raised-button matStepperPrevious>Previous</button>&nbsp;
+          <button class="btn-primary" mat-raised-button matStepperNext>Next</button>
+        </div>
+      </mat-step>
+
+      <!-- Result Form for Step 4 -->
+      <mat-step >
+        <ng-template matStepLabel>Review</ng-template>
+        <h4>Here is the copy of the information you have entered:</h4>
+        <h4>App: </h4>
+        {{ name.value }}, {{description.value}}
+        <h4>Role: </h4>
+        {{name.value}}, {{description.value}}
+
+        <br />
+        <div class="top-15">
+          <button class="btn-primary" mat-raised-button matStepperPrevious>Previous</button>&nbsp;
+          <button class="btn-success" mat-raised-button cdkFocusInitial (click)="save()">Save</button>
+        </div>
+      </mat-step>
+
+    </mat-horizontal-stepper>

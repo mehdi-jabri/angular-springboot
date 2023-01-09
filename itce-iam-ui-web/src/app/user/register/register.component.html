@@ -1,0 +1,73 @@
+<app-navbar></app-navbar>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <div class="row justify-content-md-center">
+    <div class="row justify-content-md-center">
+      <mdb-card-body class="px-lg-5 pt-0">
+
+        <form class="text-center border border-light p-5" style="color: #757575;"[formGroup]="registerForm" >
+
+          <mat-card class="material-form-field mb-4 red-text" *ngIf="errorMessage&&errorMessage.length">
+            {{errorMessage}}
+          </mat-card>
+
+          <p class="h5 mb-4 text-center green-text">Sign up</p>
+
+          <mat-form-field class="form-field" appearance="outline">
+            <label>Input name </label>
+            <input matInput type="text"  formControlName="name" >
+            <mat-error *ngIf="registerForm.controls['name'].hasError('required')">
+              Name is
+              <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="form-field" appearance="outline">
+            <label>Input email </label>
+            <input matInput type="text"  formControlName="email">
+            <mat-error *ngIf="registerForm.controls['email'].hasError('email') && !registerForm.controls['email'].hasError('required')">
+              Please enter a valid email address <i>example@gmail.com</i>
+            </mat-error>
+            <mat-error *ngIf="registerForm.controls['email'].hasError('required')">
+              Email is
+              <strong>required</strong>
+            </mat-error>
+
+          </mat-form-field>
+
+          <mat-form-field class="form-field" appearance="outline">
+            <label>Input userName </label>
+            <input matInput type="text"  formControlName="userName" >
+            <mat-error *ngIf="registerForm.controls['userName'].hasError('required')">
+              userName is
+              <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="form-field" appearance="outline">
+            <label>Input password </label>
+            <input matInput  type="password" formControlName="password" >
+            <mat-error *ngIf="registerForm.controls['password'].hasError('required')">
+              Password is
+              <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="form-field" appearance="outline">
+            <label>Confirm password </label>
+            <input matInput type="password" formControlName="confirmPassword" >
+            <mat-error *ngIf="registerForm.controls['confirmPassword'].hasError('required')">
+              Password is
+              <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+
+          <div class="alternate-theme text-center pt-5">
+            <button mat-raised-button color="primary" type="button" (click)="registreUser()">Register</button>&nbsp;
+            <a  [routerLink]="['/login']" class="radius title">Cancel</a>
+          </div>
+
+        </form>
+
+      </mdb-card-body>
+    </div>
+  </div>
